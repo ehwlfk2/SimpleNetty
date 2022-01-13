@@ -30,7 +30,8 @@ public class Client {
 
 	public void connect() throws InterruptedException {
 		// NIO를 사용하기 위해 EventLoopGroup을 생성한다.
-		eventLoopGroup = new NioEventLoopGroup(1, new DefaultThreadFactory("client"));
+		DefaultThreadFactory threadFactory =  new DefaultThreadFactory("client");
+		eventLoopGroup = new NioEventLoopGroup(1, threadFactory);
 
 		// Bootstrap 생성 및 설정
 		Bootstrap bootstrap = new Bootstrap().group(eventLoopGroup);
@@ -78,7 +79,7 @@ public class Client {
 	
 	public static void main(String[] args) throws Exception {
 		// local host = 127.0.0.1
-		Client client = new Client("10.20.10.109", SERVER_PORT);
+		Client client = new Client("127.0.0.1", SERVER_PORT);
 		
 		try {
 			client.connect();

@@ -25,9 +25,8 @@ public class EchoServerInitializer extends ChannelInitializer<SocketChannel>{
 		pipeline.addLast(new StringDecoder());
 		pipeline.addLast(new StringEncoder());
 		// 필요하다면 디코딩한 다음 EchoServerHandler를 호출해준다.
-		// 이후 write()가 되면 StringEncoder()를 통해 네트워크 너머로 데이터를 전송하게 된다.
 		pipeline.addLast(new EchoServerHandler());
+		// 이후 write()가 되면 StringEncoder()를 통해 네트워크 너머로 데이터를 전송하게 된다.
 	}
 	// 위에서는 new를 통해 매번 객체를 생성해서 파이프라인을 구축했지만 ReadOnly인 경우 등에는 하나의 객체를 여러 채널이 공유해서 쓰는 것도 가능하다 = 응용 나름!!
-	
 }
