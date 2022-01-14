@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.MessageToByteEncoder;
 
+@SuppressWarnings("rawtypes")
 public class Test {
 	ChannelHandlerAdapter cha;
 	MessageToByteEncoder mbe;
